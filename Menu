@@ -1,0 +1,96 @@
+import datetime
+import itertools
+class Tarefas(object):
+    def __init__(self, nome, qut_ativ,data):
+        self.nome = nome
+        self.qut_ativ = 0
+      #  self.data = data# criar uma utilidade para a data 
+        def __str__(self):
+            return f"{self.nome} "
+
+        def qut_Ativ(self):
+            return self.qut_ativ      
+
+        def quat_Num(self):
+            return self.qut_ativ
+
+lst_nome = []
+lst_materia = []
+lst_quat = []
+
+def cadastro_aluno():
+    nome = str(input("\n\n..........Aluno digite seu nome : ")).title()
+    lst_nome.append(nome)   
+    qut_ativ = int(input("\n\n........Digite a quantidade de atividades executadas:  "))
+    lst_quat.append(qut_ativ)
+    mat = str(input("\n\n.......Digite a matéria referente a atividade:  "))
+    lst_materia.append(mat) 
+    agora = datetime.datetime.now()
+    print(f"A data e horário do registro é : {agora}")  
+    print(f"\n\n..........As informações foram adicionadas!..........\n\nNome: {lst_nome}\n\nMatéria:{lst_materia}\n\nQuantidade: {lst_quat}") 
+def relatorio_nome():
+    print("\n\n","." * 10, "Relatório das atividades realizadas ", "." * 10,"\n\n")# União das listas
+    lst_uniao= lst_nome+ lst_materia + lst_quat
+    print("\n\n","."*10,lst_uniao)
+while True:
+    print("""\n\n\t\t\t\tMenu\n\n
+                    0- Finalizar o Programa 
+                    1- Cadastrar  atividades  dos (as) aluno(as)
+                    2- Relatório das atividades realizadas\n
+                    Obs.: Se desejar remover / deletar/ finalizar click nº 0
+                             \t\t    """)#Ir parta o menu de esclusão faze opção sim ou nã
+    opcao = int(input("\n\t\tEscolha uma opção (0 - 3):  "))
+  # No menu criar uma ação de mudar as informações
+    if opcao == 0:      
+        print("\n......................Você saiu do menu!")        
+        break
+    elif opcao == 1:
+        cadastro_aluno()
+    elif opcao == 2:
+        relatorio_nome()
+# Criar menu para deleatr e remover 
+
+def deletar():
+    pass
+def remover():
+    pass
+while True:
+    print("\n\n","." * 10, "Relatório das atividades realizadas ", "." * 10,"\n\n")# União das listas
+    lst_uniao= lst_nome+ lst_materia + lst_quat
+    print("\n\n","."*10,lst_uniao)
+    agora = datetime.datetime.now()
+    print(''' \n\tMenu /Remover / Deletar/Inserir/ Apagar lista   .\n\n....Se não for  necessário utilizar  esse menu click o nº 0!\n
+          1 - Deletar 
+          2 - Remover
+          3 - Apagar lista  
+          4 - Deseja inserir elementos na lista? sim / não
+          0 - Final \t\t
+          ''')
+    enter = int(input("Escolha sua opção [0 - 4]: "))
+    if enter ==  1:
+      '''  deletar = input("\n\nO que deseja deletar?  ").title()
+        del(deletar)
+        print(f"\n\n .......... Sua lista atual é : \n{lst_uniao}")'''
+    elif  enter == 2:
+        rem= input("\n\nO que deseja remover?  ").title()
+        lst_uniao.remove(rem)
+        print(f"\n\n .......... Sua lista atual é : \n{lst_uniao}")
+    elif enter == 3:
+        apagar= input("\n\nA lista será apagada totalmente \n\n").title(   )
+        lst_uniao.clear()
+        print(f"Lista após apagada: \n {lst_uniao}")
+    elif enter == 4:
+        opcao = input("Deseja responder sim/ não:  ")
+        if opcao.lower() == 'sim':
+            nome = str(input("\n\n..........Aluno digite seu nome : ")).title()
+            lst_nome.append(nome)   
+            qut_ativ = int(input("\n\n........Digite a quantidade de atividades executadas:  "))
+            lst_quat.append(qut_ativ)
+            mat = str(input("\n\n.......Digite a matéria referente a atividade:  \n"))      
+        else:
+            print("..........  Não foi cadastrada nenhuma informação ........")
+            break    
+    elif enter == 0:
+        print("\n\n",",.................O menu foi finalizado ..................")
+        break
+    
